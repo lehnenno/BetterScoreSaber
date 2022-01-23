@@ -9,6 +9,11 @@
       "id": "{34b514f8-3331-4f3c-9028-f7b743c6e770}"
     }
   },
+  "applications": {
+    "gecko": {
+      "id": "{34b514f8-3331-4f3c-9028-f7b743c6e770}"
+    }
+  },
   "icons": {
     "48": "icons/icon48.png"
   },
