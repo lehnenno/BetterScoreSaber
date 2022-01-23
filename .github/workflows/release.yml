@@ -28,6 +28,7 @@ jobs:
           channel: unlisted
           apiKey: ${{ secrets.AMO_SIGN_KEY }}
           apiSecret: ${{ secrets.AMO_SIGN_SECRET }}
+          verbose: true
           timeout: 900000
 
       - name: "Create Release"
