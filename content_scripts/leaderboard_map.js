@@ -10,13 +10,25 @@ async function start(finalTry = false) {
                 .then(response => { return response.json() })
 
             if (songInfo && document.getElementById("oneClickButton") === null) {
-                let button = document.createElement("a")
-                button.id = "oneClickButton"
-                button.classList.add("profile_dl_button") //TODO make a leaderboard css entry
-                button.href = "beatsaver://" + songInfo.id
-                button.innerText = "⇓"
+                let ocdButton = document.createElement("a")
+                ocdButton.id = "oneClickButton"
+                ocdButton.classList.add("profile_dl_button") //TODO make a leaderboard css entry
+                ocdButton.classList.add("fas")
+                ocdButton.classList.add("fa-cloud-download-alt")
+                ocdButton.title = "OneClick Download"
+                ocdButton.href = "beatsaver://" + songInfo.id
 
-                document.body.querySelector(".tag").after(button)
+                let bsrButton = document.createElement("a")
+                bsrButton.id = "bsrButton"
+                bsrButton.classList.add("profile_dl_button")
+                bsrButton.classList.add("fab")
+                bsrButton.classList.add("fa-twitch")
+                bsrButton.title = songInfo.id
+                bsrButton.onclick = (e => {navigator.clipboard.writeText(bsrButton.title);})
+    
+                let parent = document.body.querySelector(".tag")
+                parent.after(bsrButton)
+                parent.after(ocdButton)
             }
         }
 

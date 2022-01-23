@@ -45,13 +45,25 @@ async function start(finalTry = false) {
             if (!element.querySelector("#oneClickButton") && songInfos!==null) {
                 let hash = getHashFromScoreSaberTableElement(element).toLowerCase()
     
-                let button = document.createElement("a")
-                button.id = "oneClickButton"
-                button.classList.add("profile_dl_button")
-                button.href = "beatsaver://" + songInfos[hash].id
-                button.innerText = "⇓"
+                let ocdButton = document.createElement("a")
+                ocdButton.id = "oneClickButton"
+                ocdButton.classList.add("profile_dl_button")
+                ocdButton.classList.add("fas")
+                ocdButton.classList.add("fa-cloud-download-alt")
+                ocdButton.title = "OneClick Download"
+                ocdButton.href = "beatsaver://" + songInfos[hash].id
+
+                let bsrButton = document.createElement("a")
+                bsrButton.id = "bsrButton"
+                bsrButton.classList.add("profile_dl_button")
+                bsrButton.classList.add("fab")
+                bsrButton.classList.add("fa-twitch")
+                bsrButton.title = songInfos[hash].id
+                bsrButton.onclick = (e => {navigator.clipboard.writeText(bsrButton.title);})
     
-                element.querySelector(".clickable").before(button)
+                let parent = element.querySelector(".clickable")
+                parent.before(ocdButton)
+                parent.before(bsrButton)
             }
         };
     } catch (error) {
