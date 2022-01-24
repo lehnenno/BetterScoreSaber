@@ -13,6 +13,10 @@
           {
             "version": "0.5",
             "update_link": "https://github.com/lehnenno/BetterScoreSaber/releases/download/v0.5/betterscoresaber-0.5-an+fx.xpi"
+          },
+          {
+            "version": "0.6",
+            "update_link": "https://github.com/lehnenno/BetterScoreSaber/releases/download/v0.6/betterscoresaber-0.6-an+fx.xpi"
           }
         ]
       }
