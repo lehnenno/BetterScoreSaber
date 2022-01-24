@@ -47,7 +47,7 @@ async function start(finalTry = false) {
     
                 let ocdButton = document.createElement("a")
                 ocdButton.id = "oneClickButton"
-                ocdButton.classList.add("profile_dl_button")
+                ocdButton.classList.add("profile_button")
                 ocdButton.classList.add("fas")
                 ocdButton.classList.add("fa-cloud-download-alt")
                 ocdButton.title = "OneClick Download"
@@ -55,7 +55,7 @@ async function start(finalTry = false) {
 
                 let bsrButton = document.createElement("a")
                 bsrButton.id = "bsrButton"
-                bsrButton.classList.add("profile_dl_button")
+                bsrButton.classList.add("profile_button")
                 bsrButton.classList.add("fab")
                 bsrButton.classList.add("fa-twitch")
                 bsrButton.title = songInfos[hash].id

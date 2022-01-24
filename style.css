@@ -1,4 +1,4 @@
-.profile_dl_button {
+.profile_button {
 	display: inline-block;
 	grid-row: 1;
 	z-index: 1;
@@ -7,9 +7,30 @@
 	border-radius: 10px;
 	background-color: var(--gray-light);
 	color: var(--textColor);
-	font-weight: 900;
+	font-weight: 700;
+	font-size: 14px;
+	text-align: center;
+	line-height: 1.5;
+	min-width: 2em;
 }
 
-.profile_dl_button:hover {
+.profile_button:hover {
+	background-color: var(--gray-dark);
+}
+
+.leaderboard_button {
+	display: inline-block;
+	margin: 0px 0px 1em 1em;
+	padding: 2px 3px 2px 3px;
+	border-radius: 10px;
+	background-color: var(--gray-light);
+	color: var(--textColor);
+	font-weight: 700;
+	text-align: center;
+	line-height: 2;
+	width: 3em;
+}
+
+.leaderboard_button:hover {
 	background-color: var(--gray-dark);
 }

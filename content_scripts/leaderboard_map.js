@@ -12,7 +12,7 @@ async function start(finalTry = false) {
             if (songInfo && document.getElementById("oneClickButton") === null) {
                 let ocdButton = document.createElement("a")
                 ocdButton.id = "oneClickButton"
-                ocdButton.classList.add("profile_dl_button") //TODO make a leaderboard css entry
+                ocdButton.classList.add("leaderboard_button") //TODO make a leaderboard css entry
                 ocdButton.classList.add("fas")
                 ocdButton.classList.add("fa-cloud-download-alt")
                 ocdButton.title = "OneClick Download"
@@ -20,7 +20,7 @@ async function start(finalTry = false) {
 
                 let bsrButton = document.createElement("a")
                 bsrButton.id = "bsrButton"
-                bsrButton.classList.add("profile_dl_button")
+                bsrButton.classList.add("leaderboard_button")
                 bsrButton.classList.add("fab")
                 bsrButton.classList.add("fa-twitch")
                 bsrButton.title = songInfo.id
