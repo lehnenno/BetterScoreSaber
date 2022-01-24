@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "BetterScoreSaber",
-  "version": "0.7",
+  "version": "0.8",
   "description": "A plugin that adds a download button to ScoreSaber.",
   "homepage_url": "https://github.com/lehnenno/betterscoresaber",
   "browser_specific_settings": {

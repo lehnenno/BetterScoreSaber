@@ -1,7 +1,7 @@
 async function start(finalTry = false) {
     try {
         if (document.getElementById("oneClickButton") === null) {
-            if(finalTry){
+            if (finalTry) {
                 console.error("Button was added in FinalTry")
             }
             let hashString = document.body.querySelector(".text-muted").innerHTML
@@ -24,15 +24,28 @@ async function start(finalTry = false) {
                 bsrButton.classList.add("fab")
                 bsrButton.classList.add("fa-twitch")
                 bsrButton.title = songInfo.id
-                bsrButton.onclick = (e => {navigator.clipboard.writeText("!bsr " + bsrButton.title);})
-    
+                bsrButton.onclick = (e => { navigator.clipboard.writeText("!bsr " + bsrButton.title); })
+
                 let parent = document.body.querySelector(".tag")
+
+                if (songInfo.hasOwnProperty("error")) {
+                    ocdButton.href = "javascript: void(0)"
+                    ocdButton.title = "Couldn't find a bsr code"
+                    ocdButton.classList.add("leaderboard_button_danger")
+                    bsrButton.onclick = (e => { return })
+                    bsrButton.title = "Couldn't find a bsr code"
+                    bsrButton.classList.add("leaderboard_button_danger")
+                } else {
+                    ocdButton.classList.add("leaderboard_button_success")
+                    bsrButton.classList.add("leaderboard_button_success")
+                }
+
                 parent.after(bsrButton)
                 parent.after(ocdButton)
             }
         }
 
-        if(!finalTry){
+        if (!finalTry) {
             //without this the download button sometimes still doesnt appear...
             //with it it works most of the time...
             setTimeout(start, 500)

@@ -6,12 +6,19 @@
 	padding: 5px 7px;
 	border-radius: 10px;
 	background-color: var(--gray-light);
-	color: var(--textColor);
 	font-weight: 700;
 	font-size: 14px;
 	text-align: center;
 	line-height: 1.5;
 	min-width: 2em;
+}
+
+.profile_button_success {
+	color: var(--text-color);
+}
+
+.profile_button_danger {
+	color: var(--danger);
 }
 
 .profile_button:hover {
@@ -24,11 +31,18 @@
 	padding: 2px 3px 2px 3px;
 	border-radius: 10px;
 	background-color: var(--gray-light);
-	color: var(--textColor);
 	font-weight: 700;
 	text-align: center;
 	line-height: 2;
 	width: 3em;
+}
+
+.leaderboard_button_success {
+	color: var(--text-color);
+}
+
+.leaderboard_button_danger {
+	color: var(--danger);
 }
 
 .leaderboard_button:hover {
