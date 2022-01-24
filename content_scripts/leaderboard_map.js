@@ -24,7 +24,7 @@ async function start(finalTry = false) {
                 bsrButton.classList.add("fab")
                 bsrButton.classList.add("fa-twitch")
                 bsrButton.title = songInfo.id
-                bsrButton.onclick = (e => {navigator.clipboard.writeText(bsrButton.title);})
+                bsrButton.onclick = (e => {navigator.clipboard.writeText("!bsr " + bsrButton.title);})
     
                 let parent = document.body.querySelector(".tag")
                 parent.after(bsrButton)

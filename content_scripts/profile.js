@@ -59,7 +59,7 @@ async function start(finalTry = false) {
                 bsrButton.classList.add("fab")
                 bsrButton.classList.add("fa-twitch")
                 bsrButton.title = songInfos[hash].id
-                bsrButton.onclick = (e => {navigator.clipboard.writeText(bsrButton.title);})
+                bsrButton.onclick = (e => {navigator.clipboard.writeText("!bsr " + bsrButton.title);})
     
                 let parent = element.querySelector(".clickable")
                 parent.before(ocdButton)
