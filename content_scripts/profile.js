@@ -1,24 +1,22 @@
 function getHashFromScoreSaberTableElement(element) {
     const regexUrl = /https:[/][/]cdn.scoresaber.com[/]covers[/].*.png/
     let backgroundElement = element.querySelector(".background")
-    let songHash = backgroundElement.getAttribute("style").match(regexUrl)[0].slice(34, -4)
+    // FIXME on the profile view the only direct occurence of the song hash is in the image url of each song
+    // maybe there is a way to get the hash from somewhere else in this case
+    let songHash
+    try{
+        songHash = backgroundElement.getAttribute("style").match(regexUrl)[0].slice(34, -4)
+    }
+    catch(error){
+        console.debug("Couldn't get songHash from image - probably a song without one")
+        return "0000"
+    }
     return songHash
 }
 
-async function start(finalTry = false) {
+async function start() {
     try {
         if (document.getElementById("oneClickButton")) {
-            //FIXME there might be a better solution for this
-            //Animation seems to take between 500 and 1000ms -> Check how long this actually takes
-            //FinalTry is used so there is not something running in the background forever
-            if (!finalTry) {
-                setTimeout(start, 500, true)
-                setTimeout(start, 600, true)
-                setTimeout(start, 700, true)
-                setTimeout(start, 800, true)
-                setTimeout(start, 900, true)
-                setTimeout(start, 1000, true)
-            }
             return
         }
 
@@ -53,7 +51,6 @@ async function start(finalTry = false) {
                 if (songInfos.hasOwnProperty(hash) && songInfos[hash] !== null) {
                     ocdButton.classList.add("profile_button_success")
                     ocdButton.title = "OneClick Download"
-                    console.log(hashString)
                     ocdButton.href = "beatsaver://" + songInfos[hash].id
                 } else {
                     ocdButton.classList.add("profile_button_danger")
@@ -93,3 +90,5 @@ async function start(finalTry = false) {
 }
 
 start()
+
+setInterval(start, 200)

@@ -1,9 +1,6 @@
-async function start(finalTry = false) {
+async function start() {
     try {
         if (document.getElementById("oneClickButton") === null) {
-            if (finalTry) {
-                console.error("Button was added in FinalTry")
-            }
             let hashString = document.body.querySelector(".text-muted").innerHTML
 
             songInfo = await fetch("https://api.beatsaver.com/maps/hash/" + hashString)
@@ -45,12 +42,6 @@ async function start(finalTry = false) {
             }
         }
 
-        if (!finalTry) {
-            //without this the download button sometimes still doesnt appear...
-            //with it it works most of the time...
-            setTimeout(start, 500)
-        }
-
     } catch (error) {
         console.debug("Error caught, retrying: " + error)
         setTimeout(start, 50)
@@ -59,4 +50,7 @@ async function start(finalTry = false) {
 
 
 }
+
 start();
+
+setInterval(start,1000)
