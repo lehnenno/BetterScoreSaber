@@ -2,13 +2,10 @@ const regexProfile = /scoresaber.com[/]u/i
 const regexLeaderboard = /scoresaber.com[/]leaderboard[/]/i
 const coverCoverUrl = /https:[/][/]cdn.scoresaber.com[/]covers[/].*.png/
 
-console.log("ithnsudfbuisdbfiusbdufs")
-
 async function start() {
     if (document.getElementById("oneClickButton") !== null) return
 
     if (regexLeaderboard.test(document.URL)) {
-        console.log("test")
         let hashString = document.body.querySelector(".text-muted").innerHTML
         let songInfo = await fetch("https://api.beatsaver.com/maps/hash/" + hashString)
             .then(response => { return response.json() })
@@ -21,7 +18,6 @@ async function start() {
     }
 
     if (regexProfile.test(document.URL)) {
-        console.log("test")
         let song_entrys = document.getElementsByClassName("table-item")
 
         hashString = ""
