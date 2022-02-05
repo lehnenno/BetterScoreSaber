@@ -13,18 +13,6 @@
 	min-width: 2em;
 }
 
-.profile_button_success {
-	color: var(--text-color);
-}
-
-.profile_button_danger {
-	color: var(--danger);
-}
-
-.profile_button:hover {
-	background-color: var(--gray-dark);
-}
-
 .leaderboard_button {
 	display: inline-block;
 	margin: 0px 0px 1em 1em;
@@ -37,14 +25,14 @@
 	width: 3em;
 }
 
-.leaderboard_button_success {
+.button_success {
 	color: var(--text-color);
 }
 
-.leaderboard_button_danger {
+.button_danger {
 	color: var(--danger);
 }
 
-.leaderboard_button:hover {
+.button:hover {
 	background-color: var(--gray-dark);
 }
