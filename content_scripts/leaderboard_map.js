@@ -43,8 +43,6 @@ async function start() {
         }
 
     } catch (error) {
-        console.debug("Error caught, retrying: " + error)
-        setTimeout(start, 50)
         return
     }
 

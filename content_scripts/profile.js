@@ -48,29 +48,26 @@ async function start() {
                 ocdButton.classList.add("profile_button")
                 ocdButton.classList.add("fas")
                 ocdButton.classList.add("fa-cloud-download-alt")
-                if (songInfos.hasOwnProperty(hash) && songInfos[hash] !== null) {
-                    ocdButton.classList.add("profile_button_success")
-                    ocdButton.title = "OneClick Download"
-                    ocdButton.href = "beatsaver://" + songInfos[hash].id
-                } else {
-                    ocdButton.classList.add("profile_button_danger")
-                    ocdButton.title = "Couldn't find a bsr code"
-                    ocdButton.href = "javascript: void(0)"
-                }
-
 
                 let bsrButton = document.createElement("a")
                 bsrButton.id = "bsrButton"
                 bsrButton.classList.add("profile_button")
                 bsrButton.classList.add("fab")
                 bsrButton.classList.add("fa-twitch")
-                bsrButton.onclick = (e => { navigator.clipboard.writeText("!bsr " + bsrButton.title); })
 
                 if (songInfos.hasOwnProperty(hash) && songInfos[hash] !== null) {
+                    ocdButton.classList.add("profile_button_success")
+                    ocdButton.title = "OneClick Download"
+                    ocdButton.href = "beatsaver://" + songInfos[hash].id
+                    
                     bsrButton.classList.add("profile_button_success")
                     bsrButton.title = songInfos[hash].id
-                    bsrButton.href = "beatsaver://" + songInfos[hash].id
+                    bsrButton.onclick = (e => { navigator.clipboard.writeText("!bsr " + bsrButton.title); })
                 } else {
+                    ocdButton.classList.add("profile_button_danger")
+                    ocdButton.title = "Couldn't find a bsr code"
+                    ocdButton.href = "javascript: void(0)"
+
                     bsrButton.classList.add("profile_button_danger")
                     bsrButton.onclick = (e => { return })
                     bsrButton.title = "Couldn't find a bsr code"
@@ -83,8 +80,6 @@ async function start() {
             }
         };
     } catch (error) {
-        console.debug("Error caught, retrying: " + error)
-        setTimeout(start, 50)
         return
     }
 }
